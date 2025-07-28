@@ -1,6 +1,9 @@
-﻿using MedTracker.Core.Interfaces;
+﻿using MedTracker.Application.Interfaces;
+using MedTracker.Application.Services;
+using MedTracker.Core.Interfaces;
 using MedTracker.Infrastructure.Data;
 using MedTracker.Infrastructure.Repository;
+using MedTracker.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -22,6 +25,10 @@ namespace MedTracker
             builder.Services.AddScoped<IMedicationRepository, MedicationRepository>();
             builder.Services.AddScoped<IMedicationScheduleRepository, MedicationScheduleRepository>();
             builder.Services.AddScoped<IMedicationLogRepository, MedicationLogRepository>();
+
+            builder.Services.AddScoped<IMedicationService, MedicationService>();
+            builder.Services.AddScoped<IScheduleService, ScheduleService>();
+            builder.Services.AddScoped<IMedicationLogService, MedicationLogService>();
 
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "medtracker.db");
 
