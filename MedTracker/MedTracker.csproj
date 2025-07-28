@@ -68,4 +68,9 @@
 	  <ProjectReference Include="..\MedTracker.Infrastructure\MedTracker.Infrastructure.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Pages\" />
+	  <Folder Include="ViewModels\" />
+	</ItemGroup>
+
 </Project>

@@ -21,6 +21,7 @@ namespace MedTracker
 
             builder.Services.AddScoped<IMedicationRepository, MedicationRepository>();
             builder.Services.AddScoped<IMedicationScheduleRepository, MedicationScheduleRepository>();
+            builder.Services.AddScoped<IMedicationLogRepository, MedicationLogRepository>();
 
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "medtracker.db");
 
