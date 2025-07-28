@@ -1,4 +1,6 @@
-﻿using MedTracker.Infrastructure.Data;
+﻿using MedTracker.Core.Interfaces;
+using MedTracker.Infrastructure.Data;
+using MedTracker.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -16,6 +18,10 @@ namespace MedTracker
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddScoped<IMedicationRepository, MedicationRepository>();
+            builder.Services.AddScoped<IMedicationScheduleRepository, MedicationScheduleRepository>();
+
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "medtracker.db");
 
             builder.Services.AddDbContext<AppDbContext>(options =>
