@@ -57,6 +57,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="ViewModels\**" />
+	  <Compile Remove="ViewModels\**" />
+	  <EmbeddedResource Remove="ViewModels\**" />
+	  <MauiCss Remove="ViewModels\**" />
+	  <MauiXaml Remove="ViewModels\**" />
+	  <None Remove="ViewModels\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
@@ -70,7 +79,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Pages\" />
-	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 </Project>
