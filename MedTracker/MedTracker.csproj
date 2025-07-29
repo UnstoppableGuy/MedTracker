@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+    <!--TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks-->
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
@@ -19,6 +19,8 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+    
+    <WindowsAppSdkDeploymentManagerInitializer>false</WindowsAppSdkDeploymentManagerInitializer>
 
 		<!-- Display name -->
 		<ApplicationTitle>MedTracker</ApplicationTitle>
@@ -57,11 +59,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Pages\**" />
 	  <AndroidResource Remove="ViewModels\**" />
+	  <Compile Remove="Pages\**" />
 	  <Compile Remove="ViewModels\**" />
+	  <EmbeddedResource Remove="Pages\**" />
 	  <EmbeddedResource Remove="ViewModels\**" />
+	  <MauiCss Remove="Pages\**" />
 	  <MauiCss Remove="ViewModels\**" />
+	  <MauiXaml Remove="Pages\**" />
 	  <MauiXaml Remove="ViewModels\**" />
+	  <None Remove="Pages\**" />
 	  <None Remove="ViewModels\**" />
 	</ItemGroup>
 
@@ -72,13 +80,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\MedTracker.Application\MedTracker.Application.csproj" />
+	  <ProjectReference Include="..\MedTracker.Application\MedTracker.AppServices.csproj" />
 	  <ProjectReference Include="..\MedTracker.Core\MedTracker.Core.csproj" />
 	  <ProjectReference Include="..\MedTracker.Infrastructure\MedTracker.Infrastructure.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Pages\" />
 	</ItemGroup>
 
 </Project>

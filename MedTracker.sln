@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedTracker.Core", "MedTrack
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedTracker.Infrastructure", "MedTracker.Infrastructure\MedTracker.Infrastructure.csproj", "{19A10327-74EA-4BBC-8B1E-001D042CCB63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedTracker.Application", "MedTracker.Application\MedTracker.Application.csproj", "{01E4C510-0675-4523-AF9E-0BCF516FD548}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedTracker.AppServices", "MedTracker.Application\MedTracker.AppServices.csproj", "{01E4C510-0675-4523-AF9E-0BCF516FD548}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

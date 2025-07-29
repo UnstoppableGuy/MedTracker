@@ -1,9 +1,9 @@
-using MedTracker.Application.Interfaces;
+using MedTracker.AppServices.Interfaces;
 using MedTracker.Core.Entities;
 using MedTracker.Core.Interfaces;
 using MedTracker.Core.Models;
 
-namespace MedTracker.Application.Services
+namespace MedTracker.AppServices.Services
 {
     public class MedicationService : IMedicationService
     {

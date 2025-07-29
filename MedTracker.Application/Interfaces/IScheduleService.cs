@@ -1,7 +1,7 @@
 using MedTracker.Core.Entities;
 using MedTracker.Core.Models;
 
-namespace MedTracker.Application.Interfaces
+namespace MedTracker.AppServices.Interfaces
 {
     public interface IScheduleService
     {

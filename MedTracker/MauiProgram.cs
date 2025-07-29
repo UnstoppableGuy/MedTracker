@@ -1,9 +1,8 @@
-﻿using MedTracker.Application.Interfaces;
-using MedTracker.Application.Services;
+﻿using MedTracker.AppServices.Interfaces;
+using MedTracker.AppServices.Services;
 using MedTracker.Core.Interfaces;
 using MedTracker.Infrastructure.Data;
 using MedTracker.Infrastructure.Repository;
-using MedTracker.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
