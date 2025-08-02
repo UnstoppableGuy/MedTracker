@@ -7,14 +7,17 @@ namespace MedTracker.Infrastructure.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         public DbSet<Medication> Medications { get; set; }
         public DbSet<MedicationSchedule> MedicationSchedules { get; set; }
         public DbSet<SchedulePhase> SchedulePhases { get; set; }
         public DbSet<MedicationLog> MedicationLogs { get; set; }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite();
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Medication configuration

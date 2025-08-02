@@ -29,15 +29,36 @@ namespace MedTracker
             builder.Services.AddScoped<IScheduleService, ScheduleService>();
             builder.Services.AddScoped<IMedicationLogService, MedicationLogService>();
 
-            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "medtracker.db");
+            //Pages
+            //builder.Services.AddTransient<MainPage>();
+
 
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlite($"Data Source={dbPath}"));
+                options.UseSqlite($"Data Source={GetDatabasePath()}"));
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
+        }
+
+        public static string GetDatabasePath()
+        {
+            var databasePath = "";
+            var databaseName = "medtracker.db";
+
+            if (DeviceInfo.Platform == DevicePlatform.Android)
+            {
+                databasePath = Path.Combine(FileSystem.AppDataDirectory, databaseName);
+            }
+            if (DeviceInfo.Platform == DevicePlatform.iOS)
+            {
+                SQLitePCL.Batteries_V2.Init();
+                databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library", databaseName); ;
+            }
+
+            return databasePath;
+
         }
     }
 }
